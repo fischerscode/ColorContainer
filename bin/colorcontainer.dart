@@ -19,7 +19,15 @@ void main(List<String> arguments) async {
     request.response
       ..headers.contentType = ContentType.html
       ..writeln("""
-<!DOCTYPE html><html><head><title>ColorContainer</title></head><body style="background: $color"></body></html>""")
+<!DOCTYPE html>
+<html>
+<head>
+<title>ColorContainer</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+</head>
+<body style="background: $color"></body></html>""")
       ..close();
   }
 }
