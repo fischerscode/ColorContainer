@@ -18,14 +18,14 @@ void main(List<String> arguments) async {
   ])) {
     request.response
       ..headers.contentType = ContentType.html
+      ..headers.set("Cache-Control", "no-cache, no-store, must-revalidate")
+      ..headers.set("Pragma", "no-cache")
+      ..headers.set("Expires", "0")
       ..writeln("""
 <!DOCTYPE html>
 <html>
 <head>
 <title>ColorContainer</title>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 </head>
 <body style="background: $color"></body></html>""")
       ..close();
