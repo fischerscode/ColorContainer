@@ -13,8 +13,10 @@ void main(List<String> arguments) async {
   print("Start server with color: $color");
 
   await for (HttpRequest request in StreamGroup.merge([
-    await HttpServer.bind(InternetAddress.anyIPv4, 8080, shared: true),
-    await HttpServer.bind(InternetAddress.anyIPv4, 8080, shared: true),
+    await HttpServer.bind(InternetAddress.anyIPv4, 8080, shared: true)
+      ..idleTimeout = Duration.zero,
+    // await HttpServer.bind(InternetAddress.anyIPv6, 8080, shared: true)
+    //   ..idleTimeout = null,
   ])) {
     request.response
       ..headers.contentType = ContentType.html
